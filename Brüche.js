@@ -44,3 +44,14 @@ let bruchstring4 = string_to_bruch(b4)
 string_to_bruch(b2);
 string_to_bruch(b3);
 
+
+function add_brueche (b1, b2)
+{
+    let ergebnis = {};
+    ergebnis.ganzeZahl = b1.ganzeZahl + b2.ganzeZahl;
+    ergebnis.zaehler = b1.zaehler * b2.nenner + b2.zaehler * b1.nenner;
+    ergebnis.nenner = b1.nenner * b2.nenner
+    console.log(ergebnis);
+    return ergebnis;
+
+}
