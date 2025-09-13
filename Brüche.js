@@ -1,7 +1,7 @@
 const b1 = "3 3/4";
 const b2 = "7";
 const b3 = "3/4";
-const b4 = "5 6/5";
+const b4 = "5 6/3";
 
 
 function string_to_bruch (s)
@@ -55,3 +55,24 @@ function add_brueche (b1, b2)
     return ergebnis;
 
 }
+
+let ergebnis1 = add_brueche(bruchstring1, bruchstring4);
+
+function bruch_kuerzen (b)
+{
+    let ggT = 1;
+    let min = Math.min(b.zaehler, b.nenner);    
+    for(let i = 1; i <= min; i++)
+    {
+        if(b.zaehler % i == 0 && b.nenner % i == 0)
+        {
+            ggT = i;
+        }
+    }
+    b.zaehler = b.zaehler / ggT;
+    b.nenner = b.nenner / ggT;
+    console.log(b);
+    return b;
+}
+let ergebnis2 = bruch_kuerzen(ergebnis1);
+
