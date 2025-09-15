@@ -1,8 +1,6 @@
-const b1 = "3 3/4";
-const b2 = "7";
-const b3 = "3/4";
-const b4 = "5 6/3";
-
+const args = process.argv.slice(2);
+let input1 = args[0];
+let input2 = args[1];
 
 function string_to_bruch (s)
 {
@@ -32,32 +30,21 @@ function string_to_bruch (s)
         else
         {
             bruch.ganzeZahl = Number(s);
+            bruch.zaehler = 0;
+            bruch.nenner = 1;
         }
     }
-    
-    console.log(bruch);
     return bruch;
 }
-
-let bruchstring1 = string_to_bruch(b1);
-let bruchstring4 = string_to_bruch(b4)
-string_to_bruch(b2);
-string_to_bruch(b3);
-
-
 function add_brueche (b1, b2)
 {
     let ergebnis = {};
     ergebnis.ganzeZahl = b1.ganzeZahl + b2.ganzeZahl;
     ergebnis.zaehler = b1.zaehler * b2.nenner + b2.zaehler * b1.nenner;
     ergebnis.nenner = b1.nenner * b2.nenner
-    console.log(ergebnis);
     return ergebnis;
 
 }
-
-let ergebnis1 = add_brueche(bruchstring1, bruchstring4);
-
 function bruch_kuerzen (b)
 {
     let ggT = 1;
@@ -71,8 +58,16 @@ function bruch_kuerzen (b)
     }
     b.zaehler = b.zaehler / ggT;
     b.nenner = b.nenner / ggT;
-    console.log(b);
     return b;
 }
+
+let bruchstring1 = string_to_bruch(input1);
+let bruchstring2 = string_to_bruch(input2);
+
+let ergebnis1 = add_brueche(bruchstring1, bruchstring2);
 let ergebnis2 = bruch_kuerzen(ergebnis1);
+
+console.log("Ergebnis gekürzt:"+ ergebnis2.ganzeZahl + " " + ergebnis2.zaehler + "/" + ergebnis2.nenner);
+
+
 
