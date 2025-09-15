@@ -1,6 +1,6 @@
 const args = process.argv.slice(2);
-let input1 = args[0];
-let input2 = args[1];
+let input1 = args[0] || "3 1/4";
+let input2 = args[1] || "2 2/3";
 
 function string_to_bruch (s)
 {
@@ -24,6 +24,7 @@ function string_to_bruch (s)
 
         if(bruchsplit.length == 2 )
         {
+        bruch.ganzeZahl = 0;
         bruch.zaehler = Number(bruchsplit[0]);
         bruch.nenner = Number(bruchsplit[1]); 
         }
