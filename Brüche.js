@@ -1,6 +1,54 @@
+let Bruch = {
+    b1: "",
+    b2: "",
+    
+    string_to_bruch: function (s) {
+    let leerzeichensplit = s.split (" ");
+
+    if(leerzeichensplit.length == 2 )
+    {
+        
+       let slashsplit =  leerzeichensplit[1].split ("/");
+
+        this.ganzeZahl = Number(leerzeichensplit[0]);
+        this.zaehler = Number(slashsplit[0]);
+        this.nenner = Number(slashsplit[1]);
+    }
+
+    else if(leerzeichensplit.length == 1)
+    {
+        let bruchsplit = leerzeichensplit[0].split("/");
+
+        if(bruchsplit.length == 2 )
+        {
+        this.ganzeZahl = 0;
+        this.zaehler = Number(bruchsplit[0]);
+        this.nenner = Number(bruchsplit[1]); 
+        }
+        else
+        {
+            this.ganzeZahl = Number(s);
+            this.zaehler = 0;
+            this.nenner = 1;
+        }
+    }
+    return bruch;
+};
+
+};
+
+
+
+
+
 const args = process.argv.slice(2);
-let input1 = args[0] || "3 1/4";
-let input2 = args[1] || "2 2/3";
+Bruch.b1 = args[0] || "3 1/4";
+Bruch.b2 = args[1] || "2 2/3";
+
+
+
+
+
 
 function string_to_bruch (s)
 {
