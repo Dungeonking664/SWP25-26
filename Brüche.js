@@ -1,122 +1,83 @@
-let Bruch = {
-    b1: "",
-    b2: "",
+ class Bruch  {
+    constructor(ganzeZahl, zaehler, nenner) {
+        this.ganzeZahl = ganzeZahl;
+        this.zaehler = zaehler;
+        this.nenner = nenner;
+    }
     
-    string_to_bruch: function (s) {
+    static string_to_bruch(s) {
     let leerzeichensplit = s.split (" ");
-
     if(leerzeichensplit.length == 2 )
     {
-        
        let slashsplit =  leerzeichensplit[1].split ("/");
-
-        this.ganzeZahl = Number(leerzeichensplit[0]);
-        this.zaehler = Number(slashsplit[0]);
-        this.nenner = Number(slashsplit[1]);
+        return new Bruch(
+        Number(leerzeichensplit[0]),
+        Number(slashsplit[0]),
+        Number(slashsplit[1]),
+        );
     }
-
     else if(leerzeichensplit.length == 1)
     {
         let bruchsplit = leerzeichensplit[0].split("/");
-
         if(bruchsplit.length == 2 )
         {
-        this.ganzeZahl = 0;
-        this.zaehler = Number(bruchsplit[0]);
-        this.nenner = Number(bruchsplit[1]); 
+        return new Bruch (0, Number(bruchsplit[0]),Number(bruchsplit[1]));
         }
         else
         {
-            this.ganzeZahl = Number(s);
-            this.zaehler = 0;
-            this.nenner = 1;
+            return new Bruch(Number(s),0,1);
         }
     }
-    return bruch;
-};
-
-};
-
-
-
-
-
-const args = process.argv.slice(2);
-Bruch.b1 = args[0] || "3 1/4";
-Bruch.b2 = args[1] || "2 2/3";
-
-
-
-
-
-
-function string_to_bruch (s)
-{
-    let bruch = {};
-    
-    let leerzeichensplit = s.split (" ");
-
-    if(leerzeichensplit.length == 2 )
-    {
-        
-       let slashsplit =  leerzeichensplit[1].split ("/");
-
-        bruch.ganzeZahl = Number(leerzeichensplit[0]);
-        bruch.zaehler = Number(slashsplit[0]);
-        bruch.nenner = Number(slashsplit[1]);
-    }
-
-    else if(leerzeichensplit.length == 1)
-    {
-        let bruchsplit = leerzeichensplit[0].split("/");
-
-        if(bruchsplit.length == 2 )
-        {
-        bruch.ganzeZahl = 0;
-        bruch.zaehler = Number(bruchsplit[0]);
-        bruch.nenner = Number(bruchsplit[1]); 
-        }
-        else
-        {
-            bruch.ganzeZahl = Number(s);
-            bruch.zaehler = 0;
-            bruch.nenner = 1;
-        }
-    }
-    return bruch;
 }
-function add_brueche (b1, b2)
-{
-    let ergebnis = {};
-    ergebnis.ganzeZahl = b1.ganzeZahl + b2.ganzeZahl;
-    ergebnis.zaehler = b1.zaehler * b2.nenner + b2.zaehler * b1.nenner;
-    ergebnis.nenner = b1.nenner * b2.nenner
-    return ergebnis;
 
+ add_brueche(b2)
+{    
+    let ganzeZahl = this.ganzeZahl + b2.ganzeZahl;
+    let zaehler =this.zaehler * b2.nenner + b2.zaehler * this.nenner;
+    let nenner = this.nenner * b2.nenner;
+    return new Bruch(ganzeZahl, zaehler, nenner);
 }
-function bruch_kuerzen (b)
+
+kuerzen() 
 {
     let ggT = 1;
-    let min = Math.min(b.zaehler, b.nenner);    
-    for(let i = 1; i <= min; i++)
+    let min = Math.min(this.zaehler, this.nenner);
+    for (let i = 1; i <= min; i++) 
     {
-        if(b.zaehler % i == 0 && b.nenner % i == 0)
-        {
-            ggT = i;
-        }
+    if (this.zaehler % i == 0 && this.nenner % i == 0) 
+    {
+        ggT = i;
     }
-    b.zaehler = b.zaehler / ggT;
-    b.nenner = b.nenner / ggT;
-    return b;
+    }
+    this.zaehler = this.zaehler / ggT;
+    this.nenner = this.nenner / ggT;
+    if(this.zaehler > this.nenner)
+    {
+        this.ganzeZahl += Math.floor(this.zaehler/this.nenner);
+        this.zaehler -= Math.floor(this.zaehler/this.nenner) * this.nenner;
+    }
+    return this;
+}
+    anzeigen() {
+        console.log(
+            "Ergebnis gekürzt: " +
+                this.ganzeZahl +
+                " " +
+                this.zaehler +
+                "/" +
+                this.nenner
+        );
+    }
 }
 
-let bruchstring1 = string_to_bruch(input1);
-let bruchstring2 = string_to_bruch(input2);
+// --- Konsolen-Input ---
+const args = process.argv.slice(2);
+let input1 = args[0] || "3 1/4";
+let input2 = args[1] || "2 2/3";
 
-let ergebnis1 = add_brueche(bruchstring1, bruchstring2);
-let ergebnis2 = bruch_kuerzen(ergebnis1);
+// --- Brüche erzeugen und rechnen ---
+let b1 = Bruch.string_to_bruch(input1);
+let b2 = Bruch.string_to_bruch(input2);
 
-console.log("Ergebnis gekürzt:"+ ergebnis2.ganzeZahl + " " + ergebnis2.zaehler + "/" + ergebnis2.nenner);
-
-
-
+let ergebnis = b1.add_brueche(b2).kuerzen();
+ergebnis.anzeigen();
