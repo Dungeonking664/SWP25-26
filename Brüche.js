@@ -5,29 +5,36 @@
         this.nenner = nenner;
     }
     
-    static string_to_bruch(s) {
-    let leerzeichensplit = s.split (" ");
-    if(leerzeichensplit.length == 2 )
-    {
-       let slashsplit =  leerzeichensplit[1].split ("/");
-        return new Bruch(
-        Number(leerzeichensplit[0]),
-        Number(slashsplit[0]),
-        Number(slashsplit[1]),
+static string_to_bruch(s) {
+    let leerzeichensplit = s.split(" ");
+    let bruchObj;
+    if (leerzeichensplit.length == 2) {
+        let slashsplit = leerzeichensplit[1].split("/");
+        bruchObj = new Bruch(
+            Number(leerzeichensplit[0]),
+            Number(slashsplit[0]),
+            Number(slashsplit[1])
         );
-    }
-    else if(leerzeichensplit.length == 1)
-    {
+    } else if (leerzeichensplit.length == 1) {
         let bruchsplit = leerzeichensplit[0].split("/");
-        if(bruchsplit.length == 2 )
-        {
-        return new Bruch (0, Number(bruchsplit[0]),Number(bruchsplit[1]));
-        }
-        else
-        {
-            return new Bruch(Number(s),0,1);
+        if (bruchsplit.length == 2) {
+            bruchObj = new Bruch(0, Number(bruchsplit[0]), Number(bruchsplit[1]));
+        } else {
+            bruchObj = new Bruch(Number(s), 0, 1);
         }
     }
+    
+    if (bruchObj.nenner === 0) {
+        throw new Error("Nenner darf nicht 0 sein");
+    }
+    if (
+        isNaN(bruchObj.ganzeZahl) ||
+        isNaN(bruchObj.zaehler) ||
+        isNaN(bruchObj.nenner)
+    ) {
+        throw new Error("Ungültige Eingabe");
+    }
+    return bruchObj;
 }
 
  add_brueche(b2)
@@ -70,14 +77,17 @@ kuerzen()
     }
 }
 
-// --- Konsolen-Input ---
 const args = process.argv.slice(2);
 let input1 = args[0] || "3 1/4";
 let input2 = args[1] || "2 2/3";
 
-// --- Brüche erzeugen und rechnen ---
-let b1 = Bruch.string_to_bruch(input1);
-let b2 = Bruch.string_to_bruch(input2);
+try {
+    let b1 = Bruch.string_to_bruch(input1);
+    let b2 = Bruch.string_to_bruch(input2);
 
-let ergebnis = b1.add_brueche(b2).kuerzen();
-ergebnis.anzeigen();
+    let ergebnis = b1.add_brueche(b2).kuerzen();
+    ergebnis.anzeigen();
+} catch (err) {
+    console.error("Fehler bei der Eingabe:", err.message);
+    process.exit(1);
+}
