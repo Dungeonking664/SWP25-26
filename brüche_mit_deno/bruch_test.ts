@@ -20,3 +20,17 @@ Deno.test(function nenner0(){
     "Nenner darf nicht 0 sein",
   );
 });
+
+Deno.test(function ungültigeEingabe(){
+  assertThrows(
+    () => Bruch.fromString("abc"),
+    Error,
+    "Ungültige Eingabe",
+  );
+});
+
+Deno.test(function bruch_mit_ganz_und_ohne(){
+  const bruch1 = Bruch.fromString("2 1/2");
+  const bruch2 = Bruch.fromString("1/2");
+  assertEquals(bruch1.addiere(bruch2).toString(), "3");
+});
