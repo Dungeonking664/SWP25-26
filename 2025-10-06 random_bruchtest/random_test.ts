@@ -9,7 +9,7 @@ for (let i = 0; i < 15; i++) {
     const ergebnisbruch = new Bruch(ergebnis.ganz, ergebnis.zaehler, ergebnis.nenner);
     
    
-    summand1 = random_bruch.erweitern(summand1);
+    summand1 = random_bruch.erweitern(summand1); 
     summand2 = random_bruch.erweitern(summand2);
 
     Deno.test(`Test ${i + 1}: ${summand1.toString()} + ${summand2.toString()} = ${ergebnisbruch.toString()}`, () => {
