@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <title>Zweite HTML-Beispielseite</title>
+    <meta name="description" content="Beispielseite mit iframe zu HTL Spengergasse und Eingabefeldern.">
+</head>
+
+<body>
+    <header>
+        <h1>HTL Spengergasse – Beispielseite mit HTML-Elementen</h1>
+        <nav>
+            <ul>
+                <li><a href="#karte">Karte</a></li>
+                <li><a href="#formular">Formular</a></li>
+                <li><a href="#multimedia">Multimedia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="karte">
+            <h2>Karte: HTL Spengergasse, Wien</h2>
+            <p>Hier ist ein eingebetteter Kartenausschnitt mit einem <code>&lt;iframe&gt;</code>-Element und einem Marker direkt auf der HTL Spengergasse:</p>
+
+            <!-- Google Maps iframe mit Marker auf der HTL Spengergasse -->
+            <iframe
+                src="https://www.google.com/maps?q=HTL+Spengergasse,+Spengergasse+20,+1050+Wien&output=embed"
+                width="600"
+                height="450"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+        <hr>
+
+        <section id="formular">
+            <h2>Kontaktformular</h2>
+            <form action="#" method="post">
+                <fieldset>
+                    <legend>Persönliche Daten</legend>
+
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name" placeholder="Max Mustermann" required><br><br>
+
+                    <label for="email">E-Mail:</label><br>
+                    <input type="email" id="email" name="email" placeholder="beispiel@mail.com" required><br><br>
+
+                    <label for="geburtstag">Geburtsdatum:</label><br>
+                    <input type="date" id="geburtstag" name="geburtstag"><br><br>
+
+                    <label for="farbe">Lieblingsfarbe:</label><br>
+                    <input type="color" id="farbe" name="farbe" value="#0066ff"><br><br>
+
+                    <label for="zufriedenheit">Zufriedenheit (1–10):</label><br>
+                    <input type="range" id="zufriedenheit" name="zufriedenheit" min="1" max="10"><br><br>
+
+                    <label for="nachricht">Nachricht:</label><br>
+                    <textarea id="nachricht" name="nachricht" rows="4" cols="40" placeholder="Deine Nachricht..."></textarea><br><br>
+
+                    <label>
+                        <input type="checkbox" name="newsletter"> Newsletter abonnieren
+                    </label><br><br>
+
+                    <button type="submit">Absenden</button>
+                    <button type="reset">Zurücksetzen</button>
+                </fieldset>
+            </form>
+        </section>
+
+        <hr>
+
+        <section id="multimedia">
+            <h2>Multimedia-Beispiele</h2>
+            <p>Ein Video und eine Audio-Datei zum Testen der HTML5-Medienelemente:</p>
+
+            <video width="320" height="240" controls>
+                <source src="beispielvideo.mp4" type="video/mp4">
+                Dein Browser unterstützt das Video-Tag nicht.
+            </video>
+
+            <br><br>
+
+            <audio controls>
+                <source src="beispielaudio.mp3" type="audio/mpeg">
+                Dein Browser unterstützt das Audio-Tag nicht.
+            </audio>
+        </section>
+    </main>
+</body>
+
+</html>
