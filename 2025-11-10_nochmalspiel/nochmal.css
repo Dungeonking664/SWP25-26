@@ -1,0 +1,351 @@
+:root {
+    --herzfarbe: red;
+}
+
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    margin: 0;
+    gap: 1vw;
+    margin-top: 6vh;
+    height: 80vh;
+    width: 100vw;
+    justify-content: center;
+}
+
+
+
+
+
+.raster {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3vw;
+
+}
+
+.toast {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.55vh;
+    padding-left: 8vh;
+
+}
+
+
+.mitte {
+    display: flex;
+    flex-direction: row;
+    gap: 0.667vw;
+
+}
+
+.links {
+    display: grid;
+    grid-template-columns: repeat(2, 7.5vh);
+    grid-template-rows: repeat(7, 7.5vh);
+    gap: 0.5vh;
+}
+
+#spielfeld {
+    display: grid;
+    grid-template-columns: repeat(15, 7.5vh);
+    grid-template-rows: repeat(7, 7.5vh);
+    align-items: center;
+    gap: 0.5vh;
+}
+
+.rechts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5vh;
+}
+
+
+.unten {
+    display: flex;
+    padding-left: 4.5vw;
+    gap: 0.5vh;
+}
+
+
+
+
+.punkte {
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+}
+
+
+.erstes {
+    display: flex;
+    flex-direction: row;
+    gap: 3vh;
+}
+
+
+.kreise {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.rufzeichen {
+    display: grid;
+    grid-template-columns: repeat(2, 7.5vh);
+    grid-template-rows: repeat(3, 7.5vh);
+    gap: 0vh;
+}
+
+.feld.rundherum.joker {
+    border-radius: 50%;
+    height: 6.5vh;
+    width: 6.5vh;
+}
+
+.herzal {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2, 7.5vh);
+    grid-template-rows: repeat(2, 7.5vh);
+    gap: 0vh;
+
+
+}
+
+.feld.rundherum.herz {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6.5vh;
+    width: 6.5vh;
+    background-color: black;
+    box-sizing: border-box;
+}
+
+.feld.rundherum.herz.last {
+    margin-left: 7.5vh;
+
+}
+
+.bild_herz {
+    height: 2.5vh;
+    width: 2.5vh;
+    border-radius: 50%;
+    gap: 1vh;
+    border-color: solid white;
+    object-fit: contain;
+    color: white;
+    transform: scale(1.5);
+    transform-origin: center;
+
+
+}
+
+.bild_herz.voll {
+    color: var(--herzfarbe);
+}
+
+.bild_stern {
+    height: 4.4vh;
+    width: 4, 4vh;
+}
+
+.bild_bombe {
+    height: 4vh;
+    width: 4vh;
+}
+
+.bild_settings {
+    color: white;
+    height: 7.5vh;
+    width: 7.5vh;
+
+}
+
+.bild_box {
+    color: black;
+    width: 5vh;
+    height: 5vh;
+
+}
+
+.bild_box.voll {
+    color: white;
+}
+
+.geschlossen {
+    display: grid;
+    grid-template-columns: repeat(2, 7.5vh);
+    grid-template-rows: repeat(5, 7.5vh);
+    gap: 0.5vh;
+    margin-top: 3vh;
+}
+
+
+
+.zweites {
+    display: grid;
+    grid-template-columns: repeat(5, 7.5vh);
+    grid-template-rows: repeat(2, 7.5vh);
+    gap: 0.0vh;
+}
+
+.feld.rundherum.box {
+    height: 6.5vh;
+    width: 6.5vh;
+    padding: 0;
+}
+
+.feld.rundherum.box.last {
+    margin-left: 4vh;
+}
+
+.drittes {
+    display: flex;
+    flex-direction: row;
+    gap: 5vh;
+}
+
+.anzeige {
+    display: flex;
+    width: 20vh;
+    height: 7vh;
+    border: 3px solid white;
+    border-radius: 15px;
+    margin-top: 2.6vh;
+
+}
+
+.settings {
+    width: 7.5vh;
+    height: 7.5vh;
+    margin-top: 2.4vh;
+    background-color: black;
+    border: none;
+}
+
+
+
+.feld.rundherum {
+    background-color: black;
+    border: 1px solid;
+    border-color: white;
+    width: 7.5vh;
+    height: 7.5vh;
+    transition: background-transition 0.3;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 5vh;
+    display: flex;
+    align-items: center;
+}
+
+.feld.rundherum.h {
+    color: rgb(255, 42, 0);
+}
+
+.feld {
+    width: 7.5vh;
+    height: 7.5vh;
+    border: 1px solid black;
+    border-radius: 1.5vh;
+    transition: backround-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.x-marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.box {
+    border-radius: 50%;
+}
+
+.feld.rundherum.herz {
+    border-radius: 50%;
+}
+
+.feld.rosa {
+    background-color: rgb(180, 26, 111);
+    color: rgba(255, 255, 255, 0.612);
+    font-size: 5vh;
+}
+
+.feld.gelb {
+    background-color: rgb(204, 202, 55);
+    color: rgba(255, 255, 255, 0.612);
+    font-size: 5vh;
+}
+
+.feld.orange {
+    background-color: rgb(216, 81, 3);
+    color: rgba(255, 255, 255, 0.612);
+    font-size: 5vh;
+}
+
+.feld.grün {
+    background-color: rgb(55, 122, 35);
+    color: rgba(255, 255, 255, 0.612);
+    font-size: 5vh;
+}
+
+.feld.blau {
+    background-color: rgb(18, 112, 235);
+    color: rgba(255, 255, 255, 0.612);
+    font-size: 5vh;
+}
+
+.h {
+    border: 3px solid white;
+
+}
+
+
+
+.feld.rosa:hover,
+.feld.rosa:focus {
+    background-color: rgb(121, 16, 74);
+}
+
+.feld.gelb:hover,
+.feld.gelb:focus {
+    background-color: rgb(136, 135, 54);
+}
+
+.feld.orange:hover,
+.feld.orange:focus {
+    background-color: rgb(158, 59, 2);
+}
+
+.feld.grün:hover,
+.feld.grün:focus {
+    background-color: rgb(34, 87, 18);
+}
+
+.feld.blau:hover,
+.feld.blau:focus {
+    background-color: rgb(12, 68, 141);
+}
+
+.feld.rundherum:hover,
+.feld.rundherum:focus {
+    background-color: rgb(34, 34, 34);
+}
