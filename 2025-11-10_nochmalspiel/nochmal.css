@@ -12,7 +12,7 @@
 body {
   display: flex;
   flex-direction: row;
-  align-items: start;
+  align-items: center;
   font-family: Arial, sans-serif;
   background-color: var(--background);
   margin: 0;
@@ -21,6 +21,7 @@ body {
   height: 80vh;
   width: 100vw;
   justify-content: center;
+  font-family: orbitron, sans-serif;
 }
 .feld {
   padding: 0%;
@@ -35,6 +36,8 @@ body {
   justify-content: center;
   text-align: center;
   font-size: 5vh;
+  box-sizing: border-box;
+  font-family: orbitron, sans-serif;
 }
 
 .feld.rundherum {
@@ -43,23 +46,20 @@ body {
 }
 .raster {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 3vw;
+  gap: 1vh;
 }
 
 .toast {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0.55vh;
-  padding-left: 8vh;
+  gap: 0.5vh;
 }
 
 .mitte {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0.667vw;
 }
 
@@ -86,7 +86,6 @@ body {
 
 .unten {
   display: flex;
-  padding-left: 4.5vw;
   gap: 0.5vh;
 }
 
