@@ -282,32 +282,26 @@ body {
   border: 3px solid white;
 }
 
-.feld.rosa:hover,
-.feld.rosa:focus {
+.feld.rosa:hover {
   background-color: rgb(121, 16, 74);
 }
 
-.feld.gelb:hover,
-.feld.gelb:focus {
+.feld.gelb:hover {
   background-color: rgb(136, 135, 54);
 }
 
-.feld.orange:hover,
-.feld.orange:focus {
+.feld.orange:hover {
   background-color: rgb(158, 59, 2);
 }
 
-.feld.grün:hover,
-.feld.grün:focus {
+.feld.grün:hover {
   background-color: rgb(34, 87, 18);
 }
 
-.feld.blau:hover,
-.feld.blau:focus {
+.feld.blau:hover {
   background-color: rgb(12, 68, 141);
 }
 
-.feld.rundherum:hover,
-.feld.rundherum:focus {
+.feld.rundherum:hover {
   background-color: rgb(34, 34, 34);
 }
