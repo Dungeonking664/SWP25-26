@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        main {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #dummy {
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #dummy:hover {
+            background-color: #ff5252;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Hausübung</h1>
+        <p>Start und Stop Button für Uhr. Benötig ist addEventListener</p>
+        <section>
+            <h2>Uhrzeit:</h2>
+            <div id="time"
+                 class="mine theirs active"></div>
+        </section>
+        <section id="blabla"><button id="dummy">Stop</button></section>
+    </main>
+    <script>
+        const timeDiv = document.getElementById("time");
+        function updateTime() {
+            const now = new Date();
+            timeDiv.textContent = now.toLocaleTimeString();
+            return "Habe fertig!";
+        }
+        let intervalId = setInterval(updateTime, 1000);
+        updateTime();
+
+        const dummy = document.getElementById("dummy");
+        dummy.addEventListener("click", () => { 
+            if (dummy.textContent === "Stop") {
+                clearInterval(intervalId);
+                dummy.textContent = "Start";
+            } else {
+                intervalId = setInterval(updateTime, 1000);
+                dummy.textContent = "Stop";
+            }            
+        });
+    </script>
+   
+</body>
+
+</html>
