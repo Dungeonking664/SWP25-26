@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Wertetabelle</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <main>
+            <h1>Funktionen</h1>
+            
+            <div id="input-div">
+                <input type="number" name="start" id="start" placeholder="Startwert">
+                <input type="number" name="end" id="end" placeholder="Endwert">
+                <input type="number" name="step" id="step" placeholder="Schrittweite">
+            </div>
+            
+            <div id="addFunction">
+                <input type="text" name="newFunction" id="newFunction" placeholder="Funktion eingeben (z.B. x*x + 2)">
+                <button id="addButton">Funktion hinzufügen</button>
+            </div>
+            
+            <button id="startbutton">Berechnen</button>
+            
+            <section>
+                <h2>Wertetabelle</h2>
+                <table>
+                    <thead>
+                        <tr id="first">
+                            <td>X</td>
+                            <td>f(x)</td>
+                            <td>g(x)</td>
+                            <td>h(x)</td>
+                            <td>i(x)</td>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </body>
+</html>
