@@ -21,6 +21,12 @@ document.getElementById("loesche-essen")?.addEventListener(
 
 document.getElementById("ms-button")?.addEventListener("click", () => {
     const input = (document.getElementById("ms-input") as HTMLInputElement).value;
+    const numberinput =Number(input);
+    if (!isNaN(numberinput)) {
+        const output = ms(numberinput);
+        document.getElementById("ms-output")!.textContent = `${output}`;
+        return;
+    }
     const output = ms(input);
     document.getElementById("ms-output")!.textContent = `In Millisekunden: ${output}`;
 });
