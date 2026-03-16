@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet"
+        href="style.css">
+  <script type="module"
+          src="script.ts"></script>
+  <title>essen</title>
+</head>
+
+<body>
+  <h1>Essensliste</h1>
+  <button id="hole-essen">Hole Essen</button>
+  <button id="loesche-essen">Lösche Essen</button>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Essen</th>
+      </tr>
+    </thead>
+    <tbody id="tabelle"></tbody>
+  </table>
+  <div>
+    <h2>Ms converter</h2>
+    <input type="text" name="ms" id="ms-input" placeholder="Dauer (z.B. 5m, 1h)">
+    <button id="ms-button">Konvertieren</button>
+    <p id="ms-output"></p>
+  </div>
+</body>
+
+</html>
