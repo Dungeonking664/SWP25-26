@@ -28,5 +28,5 @@ document.getElementById("ms-button")?.addEventListener("click", () => {
         return;
     }
     const output = ms(input);
-    document.getElementById("ms-output")!.textContent = `In Millisekunden: ${output}`;
+    document.getElementById("ms-output")!.textContent = `${output}ms`;
 });
