@@ -288,9 +288,9 @@ async function withRetry<T>(
         } catch (err) {
             lastError = err;
             globalThis.__retryCount++;
-            if (globalThis.__retryCount >= maxRetries) {
-                break;
-            }
+            // if (globalThis.__retryCount >= maxRetries) {
+            //     break;
+            // }
         }
     }
     throw lastError;
