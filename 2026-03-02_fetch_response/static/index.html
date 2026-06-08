@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch & Response-Objekt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background-color: #f9f9f9;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 5px 5px 0;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            background-color: #e8f4f8;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 4px;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fetch & Response-Objekt Übungen</h1>
+        
+        <div class="section">
+            <h2>1. .json() als Promise</h2>
+            <p>Holt JSON-Daten und verarbeitet sie mit .json() als Promise</p>
+            <button onclick="fetchJSON()">JSON laden</button>
+            <div id="json-result"></div>
+        </div>
+
+        <div class="section">
+            <h2>2. .text() als Promise</h2>
+            <p>Holt Text-Daten und verarbeitet sie mit .text() als Promise</p>
+            <button onclick="fetchText()">Text laden</button>
+            <div id="text-result"></div>
+        </div>
+
+        <div class="section">
+            <h2>3. Response-Objekt Properties</h2>
+            <p>Zeigt verschiedene Properties des Response-Objekts</p>
+            <button onclick="inspectResponse()">Response inspizieren</button>
+            <div id="response-result"></div>
+        </div>
+
+        <div class="section">
+            <h2>4. Fehlerbehandlung mit .text()</h2>
+            <p>Holt einen fehlerhaften Endpoint und behandelt den Fehler</p>
+            <button onclick="fetchWithError()">Mit Fehler laden</button>
+            <div id="error-result"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

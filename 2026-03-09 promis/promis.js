@@ -1,41 +1,75 @@
-//man soll einen string eingebn und dann soll ein promis erzeugt werden wenn der string länger als 6 zeichen ist
-//dann soll das promis resolven und die selbstlaute sollen gezählt werden.
-//Wenn aber der string kürzer ist dann soll es rejected werden
+// ===== AUFGABE: PIZZA-SERVICE (HAUPTAUFGABE) =====
+// SIEHE: pizza-service.js
+
+// ===== ZUSÄTZLICHE ÜBUNG: STRING-VALIDIERUNG =====
+// Man soll einen String eingeben und dann soll ein Promise erzeugt werden:
+// - wenn der String länger als 6 Zeichen ist → resolven und Vokale zählen
+// - wenn der String kürzer ist → rejected werden
 
 function checkString(str) {
     return new Promise((resolve, reject) => {
-        if (str.length < 6) {
-            console.log("String zu kurz, rejecten");
-            return reject("String zu kurz");
-        }
-        return resolve(str);
+        setTimeout(() => {
+            if (str.length < 6) {
+                console.log(`❌ String zu kurz (${str.length} Zeichen)`);
+                return reject("String zu kurz - mindestens 6 Zeichen erforderlich");
+            }
+            console.log(`✅ String akzeptiert (${str.length} Zeichen)`);
+            return resolve(str);
+        }, 500);
     });
 }
 
-checkString("Hallo")
-    .then((r) => {
-        let count = 0;
-        for (let i = 0; i < r.length; i++) {
-            if (r[i] === "a" || r[i] === "e" || r[i] === "i" || r[i] === "o" || r[i] === "u") {
-                count++;
+// Hilfsfunktion: Vokale zählen
+function countVowels(str) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            let count = 0;
+            const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+            
+            for (let i = 0; i < str.length; i++) {
+                if (vowels.includes(str[i])) {
+                    count++;
+                }
             }
-        }
-        console.log("Anzahl der Vokale:", count);
+            
+            console.log(`📊 Vokale in "${str}": ${count}`);
+            resolve(count);
+        }, 300);
+    });
+}
+
+// ===== PROMISE-CHAIN MIT .then() und .catch() =====
+
+console.log("\n=== TEST 1: String zu kurz ===");
+checkString("Hallo")
+    .then((r) => countVowels(r))
+    .then((count) => {
+        console.log(`Ergebnis: ${count} Vokale gezählt\n`);
     })
     .catch((error) => {
-        console.error("Fehler:", error);
+        console.error(`❌ Fehler: ${error}\n`);
     });
 
-checkString("Das ist ein gutes Beispiel")
-    .then((r) => {
-        let count = 0;
-        for (let i = 0; i < r.length; i++) {
-            if (r[i] === "a" || r[i] === "e" || r[i] === "i" || r[i] === "o" || r[i] === "u") {
-                count++;
-            }
-        }
-        console.log("Anzahl der Vokale:", count);
-    })
-    .catch((error) => {
-        console.error("Fehler:", error);
-    });
+console.log("=== TEST 2: String lang genug ===");
+setTimeout(() => {
+    checkString("Das ist ein gutes Beispiel")
+        .then((r) => countVowels(r))
+        .then((count) => {
+            console.log(`Ergebnis: ${count} Vokale gezählt\n`);
+        })
+        .catch((error) => {
+            console.error(`❌ Fehler: ${error}\n`);
+        });
+}, 2000);
+
+console.log("=== TEST 3: Weiterer langer String ===");
+setTimeout(() => {
+    checkString("Promises sind wichtig für asynchrone Programmierung")
+        .then((r) => countVowels(r))
+        .then((count) => {
+            console.log(`Ergebnis: ${count} Vokale gezählt\n`);
+        })
+        .catch((error) => {
+            console.error(`❌ Fehler: ${error}\n`);
+        });
+}, 5000);

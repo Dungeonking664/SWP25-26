@@ -1,0 +1,55 @@
+
+GitHub Copilot (github-copilot)
+================
+GitHub's AI models, integrated with development tools
+
+Models:
+  - github-copilot/gpt-4o
+  - github-copilot/gpt-4-turbo
+  - github-copilot/claude-3-opus
+
+Setup:
+  export GITHUB_TOKEN="your-api-key-here"
+  opencode run "prompt" --model github-copilot/gpt-4o
+
+
+OpenCode (opencode)
+================
+Native OpenCode provider with optimized models
+
+Models:
+  - opencode/gpt-5-nano
+  - opencode/gpt-5
+  - opencode/nemotron-3-super-free
+
+Setup:
+  export OPENCODE_API_KEY="your-api-key-here"
+  opencode run "prompt" --model opencode/gpt-5-nano
+
+
+NVIDIA NGC (nvidia)
+================
+NVIDIA's AI models optimized for ML/AI workloads
+
+Models:
+  - nvidia/llama-2-7b
+  - nvidia/llama-2-70b
+  - nvidia/mistral-7b
+
+Setup:
+  export NVIDIA_API_KEY="your-api-key-here"
+  opencode run "prompt" --model nvidia/llama-2-7b
+
+
+Google Gemini (google)
+================
+Google's advanced Gemini models with multimodal capabilities
+
+Models:
+  - google/gemini-pro
+  - google/gemini-pro-vision
+  - google/gemini-ultra
+
+Setup:
+  export GOOGLE_API_KEY="your-api-key-here"
+  opencode run "prompt" --model google/gemini-pro

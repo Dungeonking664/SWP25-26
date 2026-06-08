@@ -1,0 +1,41 @@
+{
+  "agents": [
+    {
+      "name": "github-copilot-test",
+      "model": "github-copilot/gpt-4o",
+      "description": "Test agent using GitHub Copilot provider"
+    },
+    {
+      "name": "opencode-test",
+      "model": "opencode/gpt-5-nano",
+      "description": "Test agent using OpenCode provider"
+    },
+    {
+      "name": "nvidia-test",
+      "model": "nvidia/llama-2-7b",
+      "description": "Test agent using NVIDIA provider"
+    },
+    {
+      "name": "google-test",
+      "model": "google/gemini-pro",
+      "description": "Test agent using Google Gemini provider"
+    }
+  ],
+  "providers": {
+    "github-copilot": {
+      "enabled": true,
+      "apiKey": "${GITHUB_TOKEN}"
+    },
+    "opencode": {
+      "enabled": true
+    },
+    "nvidia": {
+      "enabled": true,
+      "apiKey": "${NVIDIA_API_KEY}"
+    },
+    "google": {
+      "enabled": true,
+      "apiKey": "${GOOGLE_API_KEY}"
+    }
+  }
+}
